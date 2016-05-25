@@ -1,7 +1,43 @@
-.css-form input.ng-invalid.ng-touched {
-  background-color: pink;
+.angular-form {
+    margin: 0 auto;
 }
 
-.css-form input.ng-valid.ng-touched {
-  background-color: lightgreen;
+form input.ng-invalid:not(.ng-pristine) {
+    box-shadow: 0px 0px 13px pink;
+}
+
+.error-message {
+    padding: 12px;
+    background-color: pink;
+    font-weight: bold;
+}
+
+.valid-entry {
+    padding: 12px;
+    background-color: lightgreen;
+    font-weight: bold;
+}
+
+.strong {
+    padding: 12px;
+    background-color: lightgreen;
+    font-weight: bold;
+}
+
+.okay {
+    padding: 12px;
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.weak {
+    padding: 12px;
+    background-color: pink;
+    font-weight: bold;
+}
+
+.strength {
+    padding: 1px 10px;
+    border: 2px solid;
+    color: #FFF;
 }
