@@ -1,0 +1,21 @@
+<html ng-app="formExample">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script-form.js"></script>
+  </head>
+  <body>
+      <form class="css-form">
+        <input type="text" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="user.name" placeholder="Name*" required /><br />
+        <input type="email" ng-model="user.email" placeholder="Email*" required /><br />
+        <input type="text" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="user.major" placeholder="Major"/> <br />
+        Gender:
+        <input type="radio" ng-model="user.gender" value="male" />male
+        <input type="radio" ng-model="user.gender" value="female" />female<br />
+        <input type="button" ng-click="reset()" value="Reset" />
+        <input type="submit" ng-click="update(user)" value="Save" />
+      </form>
+      <pre>user = {{user | json}}</pre>
+      <pre>master = {{master | json}}</pre>
+  </body>
+</html>
