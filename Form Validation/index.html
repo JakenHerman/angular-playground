@@ -1,58 +1,48 @@
-<html ng-app="formExample">
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-        <link rel="stylesheet" href="style.css" />
-        <script src="script-form.js"></script>
-    </head>
-    <body>
-        <form name="form" novalidate>
-    <input placeholder="User Name"
-     name="name" ng-minlength="2" ng-model="theName" ng-model-options="{updateOn:'blur'}"
-     required ng-pattern="/^[a-zA-Z\s]*$/"/>
-    <div class="valid-entry"
-              ng-show="!form.name.$invalid">
-             Hello {{theName}}
-         </div>
-    <div class="error-message"
-   ng-show="form.name.$invalid && !form.name.$pristine || form.name.$error.minlength">
-  Name must have 2 or more characters and must be alphabetic characters.
-</div>
-    <br />
-    <input placeholder="E-mail"
-     name="email" ng-model="theEmail" ng-model-options="{updateOn:'blur'}"
-     required type="email" />
-    <div class="valid-entry"
-              ng-show="!form.email.$invalid">
-             {{theEmail}} is valid.
-         </div>
-    <div class="error-message"
-   ng-show="form.email.$invalid && !form.email.$pristine">
-  Invalid Email Address
-</div>
-    <br />
-    <input placeholder="Password"
-     name="pwd" ng-model="thePwd" ng-model-options="{ updateOn: 'blur' }"
-     required type="password" pattern=".{6,}" />
-    <div class="error-message"
-   ng-show="form.password.$invalid">
-  Passwords must have at least 6 chars.
-</div>
-    <input placeholder="Password" type="password" name="password" ng-model="user.password" password-strength="user.password" />
-    <div class="valid-entry" data-ng-show='form.password.$valid && form.password.$dirty' data-ng-class="strength">This password is {{strength}}!
-    </div>
-    <br />
-    <input placeholder="Check Password"
-     name="check" ng-model="chkPwd"
-     type="password" wj-valid="chkPwd == thePwd" />
-    <div class="error-message"
-   ng-show="form.check.$invalid">
-  Sorry, the passwords don't match.
-</div>
-    <br />
-    <button type="submit"
-      ng-disabled="form.$invalid">
-  Log In
-</button>
-</form>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js">
+    </script>
+    <link href="style.css" rel="stylesheet">
+    <script src="script-form.js">
+    </script>
+    <title></title>
+</head>
+<body>
+    <form id="form" name="form" novalidate="">
+        <input name="name" placeholder="Student Name" required="">
+        <div class="valid-entry">
+            Hello {{theName}}
+        </div>
+        <div class="error-message">
+            Name must have 2 or more characters and must be alphabetic
+            characters.
+        </div><br>
+        <input name="sid" placeholder="Sam ID" required="">
+        <div class="valid-entry">
+            {{samID}} is valid.
+        </div>
+        <div class="error-message">
+            Sam ID consists of only 9 numeric digits.
+        </div><br>
+        <input name="email" placeholder="E-mail" required="" type="email">
+        <div class="valid-entry">
+            {{theEmail}} is valid.
+        </div>
+        <div class="error-message">
+            Invalid Email Address
+        </div>
+        <hr>
+        <input name="ssn" placeholder="Social Security Number" required="">
+        <div class="valid-entry">
+            {{SSN}} is valid.
+        </div>
+        <div class="error-message">
+            Social Security only consists of 9 numeric digits.
+        </div><br>
+        <button type="submit">Log In</button>
+    </form>
+</body>
 </html>
