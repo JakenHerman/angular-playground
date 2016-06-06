@@ -7,14 +7,14 @@
     <body>
         <form name="form" novalidate>
     <input placeholder="User Name"
-     name="name" ng-model="theName" ng-model-options="{updateOn:'blur'}"
+     name="name" ng-minlength="2" ng-model="theName" ng-model-options="{updateOn:'blur'}"
      required ng-pattern="/^[a-zA-Z\s]*$/"/>
     <div class="valid-entry"
               ng-show="!form.name.$invalid">
              Hello {{theName}}
          </div>
     <div class="error-message"
-   ng-show="form.name.$invalid && !form.name.$pristine">
+   ng-show="form.name.$invalid && !form.name.$pristine || form.name.$error.minlength">
   Name must have 2 or more characters and must be alphabetic characters.
 </div>
     <br />
