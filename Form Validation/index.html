@@ -1,48 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
+<html ng-app="formExample">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script-form.js"></script>
+    </head>
+    <body>
+        <form name="form" ng-conrtroller="setRequired" novalidate>
+            <input placeholder="Student Name *" ng-required="required"
+     name="name" ng-minlength="2" ng-model="theName" ng-model-options="{updateOn:'blur'}"
+     required ng-pattern="/^[a-zA-Z\s]*$/"/>
+            <div class="error-message"
+   ng-show="form.name.$invalid && !form.name.$pristine || form.name.$error.minlength">
+  Name must have 2 or more characters and must be alphabetic characters.
+</div>
+            <br />
+            <input placeholder="Sam ID *" ng-required="required" name="sid" required ng-pattern="/^\d+$/" ng-minlength="9" ng-maxlength="9" ng-model="samID" ng-model-options="{updateOn: 'blur'}"/>
+            <div class="error-message" ng-show="form.sid.$invalid && !form.sid.$pristine || form.sid.$error.minlength || form.sid.$error.maxlength">
+            Sam ID consists of only 9 numeric digits. </div>
+            <br />
 
-    <script src=
-    "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js">
-    </script>
-    <link href="style.css" rel="stylesheet">
-    <script src="script-form.js">
-    </script>
-    <title></title>
-</head>
-<body>
-    <form id="form" name="form" novalidate="">
-        <input name="name" placeholder="Student Name" required="">
-        <div class="valid-entry">
-            Hello {{theName}}
-        </div>
-        <div class="error-message">
-            Name must have 2 or more characters and must be alphabetic
-            characters.
-        </div><br>
-        <input name="sid" placeholder="Sam ID" required="">
-        <div class="valid-entry">
-            {{samID}} is valid.
-        </div>
-        <div class="error-message">
-            Sam ID consists of only 9 numeric digits.
-        </div><br>
-        <input name="email" placeholder="E-mail" required="" type="email">
-        <div class="valid-entry">
-            {{theEmail}} is valid.
-        </div>
-        <div class="error-message">
-            Invalid Email Address
-        </div>
-        <hr>
-        <input name="ssn" placeholder="Social Security Number" required="">
-        <div class="valid-entry">
-            {{SSN}} is valid.
-        </div>
-        <div class="error-message">
-            Social Security only consists of 9 numeric digits.
-        </div><br>
-        <button type="submit">Log In</button>
-    </form>
-</body>
+            <hr />
+
+            <input placeholder="Name *" ng-required="required" name="name_one" required ng-pattern="/^[a-zA-Z\s]*$/" ng-minlength="2" ng-model="nameOne" ng-model-options="{updateOn: 'blur'}" />
+            <div class="error-message" ng-show="form.name_one.$invalid && !form.name_one.$pristine || form.name_one.$error.minlength">
+                Name must have 2 or more characters and must be alphabetic characters.
+            </div>
+            <br />
+
+            <input placeholder="Address *" ng-required="required" name="address_one" ng-minlength="2"  ng-model="AddressOne" ng-model-options="{updateOn: blur}" />
+            <div class="error-message" ng-show="form.address_one.$invalid && !form.address_one.$pristine || form.address_one.$error.minlength">
+                Address must have more than 2 characters.
+            </div>
+            <br />
+
+            <input placeholder="Social Security Number *" ng-required="required" name="ssn" required ng-pattern="/^\d+$/" ng-minlength="9" ng-maxlength="9" ng-model="ssn" ng-model-options="{updateOn: 'blur'}" />
+            <div class="error-message" ng-show="form.ssn.$invalid && !form.ssn.$pristine || form.ssn.$error.minlength || form.ssn.$error.maxlength">
+        Social Security Numbers consist of 9 numeric digits. </div>
+            <br />
+
+            <input type ="text" ng-required="required" placeholder="Relationship to Student *" name="relation" ng-minlength="2" ng-maxlength="150" ng-model="relation" ng-model-options="{updateOn: blur}" />
+            <div class="error-message" ng-show="form.relation.$invalid && !form.relation.$pristine || form.relation.$error.maxlength">
+                Relationship to student field must be at least 2 characters in length, but no more than 150 characters in length. </div>
+            <br />
+
+
+
+            <button type="submit"
+      ng-disabled="form.$invalid">
+  Log In
+</button>
+        </form>
+    </body>
 </html>
