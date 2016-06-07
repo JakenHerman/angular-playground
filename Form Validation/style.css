@@ -12,32 +12,12 @@ form input.ng-invalid:not(.ng-pristine) {
     font-weight: bold;
 }
 
-.valid-entry {
-    padding: 12px;
-    background-color: lightgreen;
-    font-weight: bold;
+.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+    border-width: thick;
 }
 
-.strong {
-    padding: 12px;
-    background-color: lightgreen;
-    font-weight: bold;
-}
-
-.okay {
-    padding: 12px;
-    background-color: yellow;
-    font-weight: bold;
-}
-
-.weak {
-    padding: 12px;
-    background-color: pink;
-    font-weight: bold;
-}
-
-.strength {
-    padding: 1px 10px;
-    border: 2px solid;
-    color: #FFF;
+.ng-valid.ng-dirty {
+    border-color: green;
+    border-width: thick;
 }
